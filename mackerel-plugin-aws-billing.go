@@ -19,11 +19,11 @@ const (
 )
 
 var graphdef = map[string](mp.Graphs){
-	"AWS/billing": mp.Graphs{
-		Label: "EstimatedCharges",
+	"AWS.Billing": mp.Graphs{
+		Label: "AWS Billing",
 		Unit:  "float",
 		Metrics: [](mp.Metrics){
-			mp.Metrics{Name: "EstimatedCharges", Label: "Usd", Type: "float64"},
+			mp.Metrics{Name: "EstimatedCharges", Label: "EstimatedCharges", Type: "float64"},
 		},
 	},
 }
