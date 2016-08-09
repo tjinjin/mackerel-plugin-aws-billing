@@ -12,6 +12,9 @@ mackerel-plugin-aws-aws-billing [-region=<aws-region>] [-access-key-id=<id>] [-s
 ## AWS IAM Policy
 the credential provided manually or fetched automatically by IAM Role should have the policy that includes an action, 'cloudwatch:GetMetricStatistics'
 
+## Enable Billing Alert
+mackerel-plugin-aws-billing needs to enable billing alerts. So, turn on 'Receive Billing alert' on AWS console.
+
 ## Example of mackerel-agent.conf
 
 ```
