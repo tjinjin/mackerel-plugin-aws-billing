@@ -84,10 +84,10 @@ func (p AwsBillingPlugin) getLastPoint(metric metrics) (float64, error) {
 
 	response, err := p.CloudWatch.GetMetricStatistics(&cloudwatch.GetMetricStatisticsRequest{
 		Dimensions: dimensions,
-		StartTime:  now.Add(time.Duration(86400) * time.Second * -1), // 3 min (to fetch at least 1 data-point)
+		StartTime:  now.Add(time.Duration(21600) * time.Second * -1),
 		EndTime:    now,
 		MetricName: metric.Name,
-		Period:     86400,
+		Period:     21600,
 		Statistics: []string{metric.Type},
 		Namespace:  namespace,
 	})
