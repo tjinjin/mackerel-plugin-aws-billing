@@ -1,6 +1,6 @@
 package main
 
-import mpawsbilling "github.com/syou6162/check-docker-ps/lib"
+import mpawsbilling "github.com/tjinjin/mackerel-plugin-aws-billing/lib"
 
 func main() {
 	mpawsbilling.Do()
