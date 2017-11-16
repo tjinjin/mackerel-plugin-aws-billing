@@ -8,7 +8,7 @@ import (
 
 	"github.com/crowdmob/goamz/aws"
 	"github.com/crowdmob/goamz/cloudwatch"
-	mp "github.com/mackerelio/go-mackerel-plugin-helper"
+	mp "github.com/mackerelio/go-mackerel-plugin"
 )
 
 const (
@@ -18,12 +18,12 @@ const (
 	metricsTypeMaximum = "Maximum"
 )
 
-var graphdef = map[string](mp.Graphs){
+var graphdef = map[string]mp.Graphs{
 	"AWS.Billing": mp.Graphs{
 		Label: "AWS Billing",
 		Unit:  "float",
-		Metrics: [](mp.Metrics){
-			mp.Metrics{Name: "EstimatedCharges", Label: "EstimatedCharges", Type: "float64"},
+		Metrics: []mp.Metrics{
+			{Name: "EstimatedCharges", Label: "EstimatedCharges", Diff: false},
 		},
 	},
 }
@@ -41,8 +41,8 @@ type AwsBillingPlugin struct {
 }
 
 // FetchMetrics fetch the metrics
-func (p AwsBillingPlugin) FetchMetrics() (map[string]interface{}, error) {
-	stat := make(map[string]interface{})
+func (p AwsBillingPlugin) FetchMetrics() (map[string]float64, error) {
+	stat := make(map[string]float64)
 
 	for _, met := range [...]metrics{
 		{Name: metricName, Type: metricsTypeMaximum},
