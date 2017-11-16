@@ -1,4 +1,4 @@
-package main
+package mpawsbilling
 
 import (
 	"errors"
@@ -118,7 +118,7 @@ func (p AwsBillingPlugin) GraphDefinition() map[string](mp.Graphs) {
 	return graphdef
 }
 
-func main() {
+func Do() {
 	optAccessKeyID := flag.String("access-key-id", "", "AWS Access Key ID")
 	optSecretAccessKey := flag.String("secret-access-key", "", "AWS Secret Access Key")
 	optTempfile := flag.String("tempfile", "", "Temp file name")
